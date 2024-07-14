@@ -1,7 +1,5 @@
 package org.example.seminar01.cw1_03;
 
-import java.util.Scanner;
-
 /**
  * Дана строка. Поменять местами её половины.
  */
