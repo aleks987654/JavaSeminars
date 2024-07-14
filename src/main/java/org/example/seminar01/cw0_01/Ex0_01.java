@@ -7,7 +7,7 @@ public class Ex0_01 {
         System.out.println("Hello, occupants-pirates!");
 
         System.out.println("Input number: ");
-        Scanner scanner = new Scanner(System.in);//TODO : переименовать
+        Scanner scanner = new Scanner(System.in);
         int n = scanner.nextInt();
         int result = getPrMinusSum(n);
         System.out.println("result = " + result);
