@@ -1,6 +1,5 @@
 package org.example.seminar06.dz06;
 
-import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
@@ -24,10 +23,6 @@ public class Notebooks {
                 '}';
     }
 
-    public String getOS() {
-        return OS;
-    }
-
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -39,18 +34,6 @@ public class Notebooks {
     @Override
     public int hashCode() {
         return Objects.hash(id, RAM, ROM, CPU, OS, Color);
-    }
-
-   public HashMap<Integer, String> toHashMap() {
-        Map<Integer, String> map = new HashMap<>();
-        map.put(1, String.valueOf(id));
-        map.put(2, String.valueOf(RAM));
-        map.put(3, String.valueOf(ROM));
-        map.put(4, String.valueOf(CPU));
-        map.put(5, String.valueOf(OS));
-        map.put(6, String.valueOf(Color));
-
-        return (HashMap<Integer, String>) map;
     }
 
     public String getPARAM(int param) {
@@ -70,6 +53,16 @@ public class Notebooks {
             default:
                 return "";
         }
+    }
 
+    public boolean isSelected(Map<Integer, String> params) {
+        for (Map.Entry<Integer, String> entry : params.entrySet()) {
+            if (entry.getKey() < 4) {
+                if (Integer.parseInt(getPARAM(entry.getKey())) < Integer.parseInt(entry.getValue())) return false;
+            } else {
+                if (!getPARAM(entry.getKey()).contains(entry.getValue())) return false;
+            }
+        }
+        return true;
     }
 }
